@@ -56,16 +56,16 @@ int main(int argc, char *argv[]){
 void sort(char arr[MAX_ARRAY_SIZE][SIZE], int size){
   int x = 0;
   int swapped = 1;
-  char tmp[MAX_ARRAY_SIZE][SIZE];
-  while (swapped != 0){
+  char tmp[MAX_ARRAY_SIZE][SIZE]; // Temporary array for copying
+  while (swapped != 0){ // Repeats the sorting until no swaps occur
     swapped = 0;
     for(int x = 0; x != size; x++){
-      if (strcmp(arr[x],arr[x+1]) > 0){
+      if (strcmp(arr[x],arr[x+1]) > 0){ // Swap strings
         strcpy (tmp[0], arr[x]);
         strcpy (arr[x], arr[x+1]);
         strcpy (arr[x+1], tmp[0]);
         swapped = 1;
-      }  
+      }   
     }
   }
 }

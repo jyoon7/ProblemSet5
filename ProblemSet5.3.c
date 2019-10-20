@@ -51,7 +51,7 @@ int main(int argc, char *argv[]){
   return 0;
 }
 
-void sort(char ngram[MAX_ARRAY_SIZE][SIZE], int size){
+void sort(char ngram[MAX_ARRAY_SIZE][SIZE], int size){ // Copy & paste from ProblemSet5.2
   int x = 0;
   int swapped = 1;
   char tmp[MAX_ARRAY_SIZE][SIZE];
@@ -71,13 +71,13 @@ void sort(char ngram[MAX_ARRAY_SIZE][SIZE], int size){
 void countUniqueItems(int n, char ngram[MAX_ARRAY_SIZE][SIZE]) {
   int x = 0;
   int count = 1;
-  while(x++ != n){
-    if (strcmp(ngram[x],ngram[x+1]) == 0){
+  while(x++ != n){ 
+    if (strcmp(ngram[x],ngram[x+1]) == 0){ // Count frequency of each unique n-gram
       count++;
     }
     else
     {
-      printf("%s -> %i\n", ngram[x], count);
+      printf("%s -> %i\n", ngram[x], count); // Print after counting
       count = 1;
     }
   }
