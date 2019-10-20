@@ -3,7 +3,7 @@
 #include <string.h>
 
 const int SIZE = 32;
-const int MAX_ARRAY_SIZE = 196605;
+const int MAX_ARRAY_SIZE = 19660;
 
 void sort(char array[MAX_ARRAY_SIZE][SIZE], int size);
 void countUniqueItems(int n, char ngram[MAX_ARRAY_SIZE][SIZE]);
@@ -51,10 +51,36 @@ int main(int argc, char *argv[]){
   return 0;
 }
 
-void sort(char array[MAX_ARRAY_SIZE][SIZE], int size){
-
+void sort(char ngram[MAX_ARRAY_SIZE][SIZE], int size){
+  int x = 0;
+  int swapped = 1;
+  char tmp[MAX_ARRAY_SIZE][SIZE];
+  while (swapped != 0){
+    swapped = 0;
+    for(int x = 0; x != size; x++){
+      if (strcmp(ngram[x],ngram[x+1]) > 0){
+        strcpy (tmp[0], ngram[x]);
+        strcpy (ngram[x], ngram[x+1]);
+        strcpy (ngram[x+1], tmp[0]);
+        swapped = 1;
+      }  
+    }
+  }
 }
 
 void countUniqueItems(int n, char ngram[MAX_ARRAY_SIZE][SIZE]) {
+  int x = 0;
+  int count = 1;
+  while(x++ != n){
+    if (strcmp(ngram[x],ngram[x+1]) == 0){
+      count++;
+    }
+    else
+    {
+      printf("%s -> %i\n", ngram[x], count);
+      count = 1;
+    }
+  }
+
 
 }

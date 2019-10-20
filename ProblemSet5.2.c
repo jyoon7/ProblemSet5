@@ -3,15 +3,13 @@
 #include <string.h>
 
 const int SIZE = 32;
-const int MAX_ARRAY_SIZE = 196605;
+const int MAX_ARRAY_SIZE = 19660;
 
 void sort(char arr[MAX_ARRAY_SIZE][SIZE], int size);
 
 int main(int argc, char *argv[]){
-  printf("1");
   int size = 0;
   char ngram[MAX_ARRAY_SIZE][SIZE];
-  printf("2");
 
 
 
@@ -23,7 +21,6 @@ int main(int argc, char *argv[]){
     printf("File cannot be opened or does not exist.\n");
     return 1; //Return error
   }
-  printf("3");
 
   // Read each line in the text file using fgets()
   while(fgets(ngram[size], SIZE, readFile) != NULL){
@@ -42,7 +39,6 @@ int main(int argc, char *argv[]){
 
     size++;
   }
-  printf("4");
   // Close the file since we are done reading it.
   if(!readFile) fclose(readFile);
 
@@ -53,12 +49,24 @@ int main(int argc, char *argv[]){
   for(int i=0; i < size; i++){
     printf("%s\n", ngram[i]);
   }
-  printf("6");
   return 0;
 }
 
 // Implement Bubble Sort in this function
 void sort(char arr[MAX_ARRAY_SIZE][SIZE], int size){
-  printf("5");
+  int x = 0;
+  int swapped = 1;
+  char tmp[MAX_ARRAY_SIZE][SIZE];
+  while (swapped != 0){
+    swapped = 0;
+    for(int x = 0; x != size; x++){
+      if (strcmp(arr[x],arr[x+1]) > 0){
+        strcpy (tmp[0], arr[x]);
+        strcpy (arr[x], arr[x+1]);
+        strcpy (arr[x+1], tmp[0]);
+        swapped = 1;
+      }  
+    }
+  }
 }
 
